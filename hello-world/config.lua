@@ -46,5 +46,5 @@ luaservice  = _skynet.."service/?.lua;"..app_root.."/?.lua"
 --  采用snlua bootstrap启动hello-world模块
 --[[
 bootstrap   = "snlua bootstrap"
-start       = "main"
+start       = "hello-world"
 --]]
