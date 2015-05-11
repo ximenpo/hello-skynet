@@ -5,8 +5,7 @@ skynet.start(function()
     -- get the logger service
     local logger    = skynet.localname(".logger")
     if not logger then
-        print("no logger found.")
-        skynet.abort()
+        skynet.error("no logger found")
     end
 
     --  send message to logger
