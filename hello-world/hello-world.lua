@@ -9,10 +9,10 @@ skynet.start(function()
         skynet.abort()
     end
 
-    --  send message
+    --  send message to logger
     core.send(logger, skynet.PTYPE_TEXT, 0, "hello, world!")
 
-    --  quit after 10 ms
+    --  delay quit for the logger display
     skynet.timeout(0, function()
         skynet.abort()
         --skynet.exit()
