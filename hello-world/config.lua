@@ -38,10 +38,10 @@ bootstrap   = "snlua hello-world"
 ----------------------------------
 --  snlua用到的参数
 ----------------------------------
-lua_path    = _skynet.."lualib/?.lua;"..app_root.."/?.lua"
-lua_cpath   = _skynet.."luaclib/?.so;"..app_root.."/?.so"
-lualoader   = "skynet/lualib/loader.lua"
-luaservice  = _skynet.."service/?.lua;"..app_root.."/?.lua"
+lua_path    = _skynet.."lualib/?.lua;"..app_root.."?.lua"
+lua_cpath   = _skynet.."luaclib/?.so;"..app_root.."?.so"
+luaservice  = _skynet.."service/?.lua;"..app_root.."?.lua"
+lualoader   = _skynet.."lualib/loader.lua"
 
 --  采用snlua bootstrap启动hello-world模块
 --[[
