@@ -1,4 +1,5 @@
 local skynet    = require "skynet"
+local skymgr    = require "skynet.manager"
 local core      = require "skynet.core"
 
 --方式1
@@ -8,7 +9,7 @@ skynet.start(function()
     skynet.error("hello, world!")
 
     --  dalay and quit
-    skynet.timeout(1, skynet.abort)
+    skynet.timeout(1, skymgr.abort)
 end)
 --]]
 
@@ -19,14 +20,14 @@ skynet.start(function()
     local logger    = skynet.localname(".logger")
     if not logger then
         skynet.error("no logger found")
-        skynet.abort()
+        skymgr.abort()
     end
 
     core.send(logger, skynet.PTYPE_TEXT, 0, "hello, world!")
 
     --  delay quit for the logger display
     skynet.timeout(1, function()
-        skynet.abort()
+        skymgr.abort()
         --skynet.exit()
     end)
 end)
