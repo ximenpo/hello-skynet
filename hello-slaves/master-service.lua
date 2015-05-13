@@ -6,7 +6,7 @@ local svc   = {}
 
 svc.handler = function(session, address, cmd, id, ...)
 	skynet.error("["..skynet.address(address).."]", cmd, id, ...)
-	
+
 	--将单播更改为广播到频道
 	--skynet.send(address, "lua", "hello, slave"..id)
 	svc.mc:publish("hello, slave"..id)
@@ -18,5 +18,5 @@ skynet.start(function()
 
 	-- 生成多播频道, 并保存到 master.channel ,供 slaves 读取
 	svc.mc	= mc.new()
-	dc.set("master", "channel", svc.mc)
+	dc.set("hello-slaves", "channel", svc.mc.channel)
 end)

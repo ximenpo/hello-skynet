@@ -8,7 +8,7 @@ local _skynet	= _root.."skynet/"
 ----------------------------------
 --  自定义参数
 ----------------------------------
-app_name    	= "hello-slave"
+app_name    	= "hello-slaves"
 app_root    	= _root..app_name.."/"
 
 ----------------------------------

@@ -21,10 +21,10 @@ skynet.start(function()
 
 	-- 创建并订阅多播频道
 	svc.mc	= mc.new {
-		channel		= dc.wait("master", "channel")
+		channel		= dc.get("hello-slaves", "channel"),
 		dispatch	= function (channel, source, ...)
 			skynet.error("["..skynet.address(source).."]", ...)
-		end
+		end,
 	}
 	svc.mc:subscribe()
 
