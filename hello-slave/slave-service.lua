@@ -17,7 +17,6 @@ skynet.start(function()
     -- 设置 lua 协议处理函数
 	skynet.dispatch("lua", svc.handler)
 
-skynet.error(svc.master)
     --方式一，按句柄发消息
     skynet.send(svc.master, "lua", "SLAVE", skynet.getenv "harbor")
 

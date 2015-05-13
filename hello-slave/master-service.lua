@@ -3,7 +3,7 @@ local skynet    = require "skynet"
 local svc   = {}
 svc.handler = function(session, address, cmd, id, ...)
     skynet.error("["..skynet.address(address).."]", id, "connected")
-    skynet.send(address, "lua", "hello", "harbor"..id)
+    skynet.send(address, "lua", "hello, slave"..id)
 end
 
 skynet.start(function()
