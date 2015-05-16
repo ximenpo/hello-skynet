@@ -9,4 +9,7 @@ skynet.start(function()
     skymgr.name(".console", skynet.newservice("console"))
     --启动debug_console服务，并命名为 .dbgconsole
     skymgr.name(".dbgconsole", skynet.newservice("debug_console", 7000 + math.random(800)))
+
+    --启动好了，没事做就退出
+    skynet.exit()
 end)
