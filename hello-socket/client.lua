@@ -1,7 +1,7 @@
 local skynet    = require "skynet"
 local socket    = require "socket"
 
-local name = ...
+local name = ... or ""
 
 function _read(id)
     while true do
