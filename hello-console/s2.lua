@@ -1,7 +1,7 @@
 local skynet= require "skynet"
 local snax  = require "snax"
 
-handler = handler or {}
+local handler = handler or {}
 handler.name    = nil
 
 --处理post／send消息
