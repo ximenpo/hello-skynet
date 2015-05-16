@@ -1,4 +1,5 @@
 local skynet    = require "skynet"
+local skymgr	= require "skynet.manager"
 local netpack   = require "netpack"
 local socket 	= require "socket"
 
@@ -15,6 +16,7 @@ end
 
 --socket事件处理
 function SOCKET.open(fd, addr)
+	skynet.call(gate, "lua", "accept", fd)
 	skynet.error("client"..fd, "connected: ", addr)
 end
 
@@ -29,22 +31,6 @@ end
 function SOCKET.data(fd, msg)
 	skynet.error("client"..fd, "says: ", msg)
 	socket.write(fd, msg)
-end
-
---简单echo服务
-function    echo(id, addr)
-	socket.start(id)
-	while true do
-		local str = socket.read(id)
-		if str then
-			skynet.error("client"..id, " says: ", str)
-			socket.write(id, str)
-		else
-			socket.close(id)
-            skynet.error("client"..id, " ["..addr.."]", "disconnected")
-			return
-		end
-	end
 end
 
 --服务入口
@@ -64,5 +50,12 @@ skynet.start(function()
 		end
 	end)
 
-	gate = skynet.unqueservice("gate")
+	--启动gate服务
+	gate = assert(skymgr.uniqueservice("gate"))
+	skynet.call(gate, "lua", "open",{
+	    address = skynet.getenv("app_server_ip"), 	-- 监听地址
+	    port 	= skynet.getenv("app_server_port"), -- 监听端口
+	    maxclient = 1024,   -- 最多允许 1024 个外部连接同时建立
+	    nodelay = true,     -- 给外部连接设置  TCP_NODELAY 属性
+	})
 end)
