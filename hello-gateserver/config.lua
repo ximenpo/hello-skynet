@@ -8,7 +8,7 @@ local _skynet	= _root.."skynet/"
 ----------------------------------
 --  自定义参数
 ----------------------------------
-app_name    	= "hello-watchdog"
+app_name    	= "hello-gateserver"
 app_root    	= _root..app_name.."/"
 app_server_ip   = "0.0.0.0"
 app_server_port = 7000
