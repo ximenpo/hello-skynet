@@ -3,7 +3,7 @@ local skymgr    = require "skynet.manager"
 local cluster   = require "cluster"
 
 local methods    = {
-    --方式一，cluster.proxy，可以call，不可以send
+    --方式一，cluster.proxy，可以call，可以send
     [1] = function()
         local proxy = cluster.proxy("srv", ".srv")
         -- send
