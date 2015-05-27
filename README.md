@@ -2,7 +2,7 @@
 
 skynet学习例子
 
-# 例子列表
+# 列表
 
 ### `hello-world`
 
