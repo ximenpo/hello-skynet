@@ -34,7 +34,7 @@ skynet学习例子
 ### `hello-socketchannel`
 socketchannel应用.在hello-socket基础上, 服务端不变, 客户端从socket改为socketchannel方式.
 
-### `hello-gatesrver`
+### `hello-gateserver`
 gateserver应用, 这里采用watchdog模式.
 
 ### `hello-cluster`
